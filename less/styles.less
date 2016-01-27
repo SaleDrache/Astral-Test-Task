@@ -58,6 +58,8 @@ body {
 @bigscreen: 1200px;
 
 
+@transparentClrHigh: rgba(255, 255, 255, 0.3);
+@transparentClrLow: rgba(255, 255, 255, 0.6);
 
 /* ------------ MIXIN ---------------*/
 
@@ -68,7 +70,7 @@ body {
 
 html	{
 
-	font-size: 18px;
+	font-size: 20px;
 
 	@media screen and (max-width: @bigscreen) {
 		font-size: 16px;
@@ -84,6 +86,23 @@ html	{
 	}
 }
 
+h1 {
+	font-size: 2.2rem;			/* 44/20px */
+}
+
+h2 {
+	font-size: 1.4rem;			/* 26/20px */
+	color: Gray;
+	font-weight: lighter;
+}
+
+h3 {
+	font-size: 1.8rem;			/* 36/20px */
+}
+
+h1, h2, h3, h4, h5, p {
+	line-height:	1.7rem;		/* 34/20px */
+}
 
 
 
@@ -95,4 +114,145 @@ body {
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+
+	padding-top: 180px;
+}
+
+nav {
+	margin-bottom: 40px;
+	ul {
+		width: 328.2px;
+		margin: 0 auto;
+	}
+	li {
+		display: inline;
+		padding: 0 20px; 
+	}
+	a {
+		font-size: 40px;
+		color: @transparentClrHigh;
+		&.active {
+			color: white;
+			&:hover {
+				color: white;
+			}
+		}
+		&:hover {
+			color: @transparentClrLow;
+		}
+	}
+}
+
+.wrapper {
+	background-color: white;
+}
+
+#home {
+	
+	.wrapper {		
+		padding-right: 0;
+		.text {
+			margin-top: 170px;
+			padding-left: 50px;
+		}
+		h1 {
+			margin-bottom: 20px;
+		}
+	}
+	.headerPhoto{
+		padding: 0;
+	}
+}
+
+#work {
+	display: none;
+	.wrapper {
+		padding: 70px 37.5px;
+	}
+
+	.text {
+		padding: 0 12.5px;
+		p {
+			padding: 35px 0 25px 0;
+		}
+	}
+
+	.photos {
+		img {
+			padding: 12.5px
+		}
+	}
+}
+
+#contact {
+	display: none;
+	.wrapper {
+		padding: 70px 37.5px;
+	}
+
+	h3 {
+		padding: 0 12.5px 30px 12.5px;
+	}
+
+	.form-horizontal {
+		padding: 0 12.5px;
+	}
+
+	.form-group {
+		&:nth-child(1){
+			padding-right: 15px;
+		}
+		&:nth-child(2){
+			padding-left: 15px;
+		}
+		margin: 0 0 25px 0;
+		padding: 0;
+
+		input, textarea {
+			font-size: 0.8rem;
+			border: 0;
+			border-radius: 0; 
+			padding: 18px 15px;
+			background-color: WhiteSmoke;
+		} 
+		input {
+			height: 58px;
+		}
+	}
+
+	.submitBtn {
+		margin-top: 5px;
+		padding: 0;
+		button {
+			font-size: 16px;
+			padding: 25px 35px;
+			color: white;
+			background-color: black;
+			border: none;
+		}
+	}
+
+}
+
+footer {
+	width: 222px;
+	margin: 35px auto;
+
+	p, a, span {
+		font-size: 14px;
+		color: @transparentClrLow;
+		display: inline;
+	}
+
+	span {
+		padding: 0 10px;
+	}
+
+	a {
+		text-decoration: underline;
+		&:hover {
+			color: white;
+			text-decoration: none;
+		}
+	}
 }
