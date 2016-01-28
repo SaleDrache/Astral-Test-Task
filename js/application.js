@@ -7,7 +7,8 @@ $(document).ready(function () {
 	function changeNavTab (tab) {
 
 	   var hash = tab.hash;
-	   $(hash).show().siblings().hide();
+	   $(hash).siblings().slideUp(800);
+	   $(hash).delay( 600 ).slideDown(800);
 	}
 	
 	$("nav").on("click","a", function() {
