@@ -63,6 +63,26 @@ body {
 
 /* ------------ MIXIN ---------------*/
 
+/*for #work, #contact*/
+.wrapperProp1 () {
+	.wrapper {
+		padding: 70px 37.5px;
+		@media screen and (max-width: @bigscreen) {
+			padding: 40px 20px;
+		}
+	}
+}
+/*for #home, #work, #contact*/
+.wrapperProp2 () {
+	.wrapper {
+		@media screen and (max-width: @mobile) {
+			margin-left: 0;
+			width: 100%;
+			padding: 7.5px 15px;
+			margin-bottom: 15px;
+		}
+	}
+}
 
 
 
@@ -115,11 +135,14 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 
-	padding-top: 180px;
+	padding-top: 10%;
 }
 
 nav {
 	margin-bottom: 40px;
+	@media screen and (max-width: @mobile) {
+		margin-bottom: 20px;
+	}
 	ul {
 		width: 328.2px;
 		margin: 0 auto;
@@ -146,11 +169,14 @@ nav {
 			}
 			& .fa-caret-up {
 				top: 30px;
+				@media screen and (max-width: @mobile) {
+					display: none;
+				}
 			}
 			
 			
 		}
-		&:hover {
+		&:hover, &:focus {
 			color: @transparentClrLow;
 		}
 	}
@@ -161,47 +187,90 @@ nav {
 }
 
 #home {
-	
+	margin-left: 0;
+	margin-right: 0;
+
+	.wrapperProp2 ();	/* MIXIN */
+
 	.wrapper {		
 		padding-right: 0;
 		.text {
-			margin-top: 170px;
-			padding-left: 50px;
+			margin-top: 17%;
+			padding-left: 5.5%;
 		}
 		h1 {
 			margin-bottom: 20px;
 		}
+		.headerPhoto{
+			padding: 0;
+			float: right;
+		}
+		@media screen and (max-width: @mobile) {
+			padding-right: 15px;
+			.text {
+				width: 100%;
+			}
+			.headerPhoto {
+				width: 100%;
+				padding: 15px 0;
+			}
+		}
 	}
-	.headerPhoto{
-		padding: 0;
-	}
+	
 }
 
 #work {
 	display: none;
-	.wrapper {
-		padding: 70px 37.5px;
+	@media screen and (max-width: @mobile) {
+		display: initial;
 	}
+
+	margin-left: 0;
+	margin-right: 0;
+
+	.wrapperProp1 ();	/* MIXIN */
+	.wrapperProp2 ();	/* MIXIN */
 
 	.text {
 		padding: 0 12.5px;
 		p {
 			padding: 35px 0 25px 0;
 		}
+		@media screen and (max-width: @bigscreen) {
+			padding: 0 7.5px;
+			p {
+				padding: 20px 0 15px 0;
+			}
+		}
+		@media screen and (max-width: @mobile) {
+			padding: 0;
+		}
 	}
 
 	.photos {
 		img {
-			padding: 12.5px
+			padding: 12.5px;
+			@media screen and (max-width: @bigscreen) {
+				padding: 7.5px;
+			}
+			@media screen and (max-width: @mobile) {
+				padding: 7.5px 0;
+			}
 		}
 	}
 }
 
 #contact {
 	display: none;
-	.wrapper {
-		padding: 70px 37.5px;
+	@media screen and (max-width: @mobile) {
+		display: initial;
 	}
+
+	margin-left: 0;
+	margin-right: 0;
+	
+	.wrapperProp1 ();	/* MIXIN */
+	.wrapperProp2 ();	/* MIXIN */
 
 	h3 {
 		padding: 0 12.5px 30px 12.5px;

@@ -11,7 +11,7 @@ $(document).ready(function () {
 	   $(hash).delay( 600 ).slideDown(800);
 	}
 	
-	$("nav").on("click","a", function() {
+	$("nav").on("click","a.tab", function() {
 		setActiveState( $(this) );
 		changeNavTab(this);
 	});
