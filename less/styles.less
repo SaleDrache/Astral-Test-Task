@@ -129,13 +129,25 @@ nav {
 		padding: 0 20px; 
 	}
 	a {
+		position: relative;
 		font-size: 40px;
 		color: @transparentClrHigh;
-		&.active {
-			color: white;
-			&:hover {
+		.fa-caret-up {
+			position: absolute;
+			left: -5px;
+			top: 60px;
+			cursor: default;
+		}
+		
+		&.active {			
+			&, &:hover {
 				color: white;
 			}
+			& .fa-caret-up {
+				top: 30px;
+			}
+			
+			
 		}
 		&:hover {
 			color: @transparentClrLow;
