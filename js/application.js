@@ -37,7 +37,6 @@ $(document).ready(function () {
 			( $(this) ).find(".small").fadeOut("fast");
 		}
 	}
-
 	function showBigPhoto () {
 		var photoSrc = $(this).attr("src");
 		$(".zoomedInPhoto").fadeOut("normal", function(){
@@ -45,22 +44,28 @@ $(document).ready(function () {
 			$(".zoomedInPhoto").fadeIn("normal");
 		});
 	}
-
 	function hideBigPhoto (time) {
 		time = time || 0;
 		$(".zoomedInPhoto").delay( time ).slideUp("slow");
 	}
 
-		
+
+	/* CODE */
+
+	/* scroll down to respective tab for mobiles or change tab for other screen sizes */
 	$("nav").on("click","a.tab", function() {
+		
+		if (!$(this).hasClass("active")) {	/* hiding big photo when we change tab */
+			hideBigPhoto(1000);				/* but leaves it if we click again on the same tab*/
+		}									/* needs to stand before setActiveState*/
+
 		setActiveState( $(this) );
 		changeNavTab( $(this) );
-		hideBigPhoto(1000);
 	});
 
+	/* Zoom-in and zoom-out photos */
 	$(".photo").hover( showSmallPhoto, hideSmallPhoto );
 	$(".photoList").on("click", ".small", showBigPhoto);
-	
 	$(".zoomedInPhoto").on("click", ".small", hideBigPhoto);
 
 	
