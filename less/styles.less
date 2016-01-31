@@ -294,14 +294,29 @@ nav {
 	}
 
 	.photos {
-		img {
-			padding: 1.5%;
-			@media screen and (max-width: @bigscreen) {
-				padding: 7.5px;
+		.photo {
+			position: relative;
+			padding: 0;
+			img {
+				padding: 4.5%;
+				@media screen and (max-width: @bigscreen) {
+					padding: 7.5px;
+				}
+				@media screen and (max-width: @mobile) {
+					padding: 7.5px 0;
+				}
 			}
-			@media screen and (max-width: @mobile) {
-				padding: 7.5px 0;
-			}
+		}
+		.big {
+			width: 100%;
+		}
+		.small {
+			position: absolute;
+			right: 0;
+			top:0 ;
+			width: 50%;
+			display: none;
+			cursor: zoom-in;
 		}
 	}
 }

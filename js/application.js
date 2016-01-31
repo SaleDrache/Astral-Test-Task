@@ -25,13 +25,21 @@ $(document).ready(function () {
 		       window.location.hash = hash;
 		     });
 		}
-
 	}
+
+	function showSmallPhoto () {
+			( $(this) ).find(".small").fadeIn("fast");
+	}
+	function hideSmallPhoto () {
+			( $(this) ).find(".small").fadeOut("fast");
+	}
+
 	
 	$("nav").on("click","a.tab", function() {
 		setActiveState( $(this) );
 		changeNavTab( $(this) );
 	});
+	$(".photo").hover( showSmallPhoto, hideSmallPhoto );
 
 	
 });
