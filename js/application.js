@@ -1,6 +1,50 @@
 $(document).ready(function () {
 
+	var validateData = {
+		rules:
+		{
+			fullname:
+			{
+				required:true
+			},
+			email:
+			{
+				required:true,
+				email:true
+			},
+			subject:
+			{
+				required:true
+			},
+			message:
+			{
+				required:true
+			}
+		},
+		messages:
+		{
+			fullname:
+			{
+				required: "Please provide your name here"
+			},
+			email:
+			{
+				required:"Please enter your email address",
+				email:"Please enter a valid email address"
+			},
+			subject:
+			{
+				required:"Please enter the subject"
+			},
+			message:
+			{
+				required:"Message field can't be empty"
+			}
+		}
+	}
+
 	function setActiveState (selected) {
+		console.log(selected);
 		selected.addClass("active").parent().siblings().find("a").removeClass("active");
 	}
 
@@ -63,10 +107,35 @@ $(document).ready(function () {
 		changeNavTab( $(this) );
 	});
 
+	$("#home").on("click",".goToWork", function() {
+		changeNavTab( $(".work") );
+		setActiveState( $(".work") );
+	});
+
 	/* Zoom-in and zoom-out photos */
 	$(".photo").hover( showSmallPhoto, hideSmallPhoto );
 	$(".photoList").on("click", ".small", showBigPhoto);
 	$(".zoomedInPhoto").on("click", ".small", hideBigPhoto);
+
+	/* Validate contact form */
+	$(".form-horizontal").validate(validateData);
+
+	/*Check to see if it is a mobile screen and the window is on top, if not then display button*/
+	$(window).scroll(function(){
+		if ( ($(this).scrollTop() > 400) && ( $(document).width() <= 403) ) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	/*Click event to scroll to top*/
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+
+
 
 	
 });

@@ -148,7 +148,7 @@ body {
 	padding-top: 10%;
 }
 
-nav {
+#navigation {
 	margin-bottom: 40px;
 	@media screen and (max-width: @mobile) {
 		margin-bottom: 20px;
@@ -164,7 +164,7 @@ nav {
 		display: inline;
 		padding: 0 20px; 
 	}
-	a {
+	a, twitter {
 		position: relative;
 		font-size: 40px;
 		color: @transparentClrHigh;
@@ -194,6 +194,32 @@ nav {
 		&:hover, &:focus {
 			color: @transparentClrLow;
 		}
+	}
+}
+
+.scrollToTop {
+	
+	display: none;
+	position: fixed;
+	right: 30px;
+	bottom: 100px;
+	z-index: 10;
+
+	padding: 15px;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.2);
+	
+	&:hover, &:focus {
+		background-color: rgba(0, 0, 0, 0.6);
+		i {
+			color: rgba(255, 255, 255, 0.6);
+		}
+		outline: none;
+	}
+
+	i {
+		font-size: 20px;
+		color: rgba(255, 255, 255, 0.2);
 	}
 }
 
@@ -254,9 +280,33 @@ nav {
 				}
 			}
 			.headerPhoto {
+				position: relative;
 				width: 100%;
 				padding: 15px 0;
 			}
+		}
+	}
+
+	.goToWork {
+		position: absolute;
+		right: 0;
+		top: 40%;
+		padding: 27px 25px 24px 25px;
+		border: none;
+		background-color: black;
+		i {
+			color: white;
+			font-size: 28px;
+		}
+		outline: none;
+		@media screen and (max-width: @tablet) {
+			padding: 10%;
+			i {
+				font-size: 20px;
+			}
+		}
+		@media screen and (max-width: @mobile) {
+			display: none;
 		}
 	}
 	
@@ -390,8 +440,16 @@ nav {
 			@media screen and (max-width: @tablet) {
 				font-size: 14px;
 				padding: 10px 10px;
+			}
+			&.error {
+				border: 1px solid red;
 			}			
-		} 
+		}
+
+		label.error {
+			color: red;
+			padding-top: 5px;
+		}
 
 		textarea {
 			resize: vertical;
@@ -409,6 +467,7 @@ nav {
 
 		
 	}
+
 
 	.submitBtn {
 		margin-top: 5px;
