@@ -92,6 +92,10 @@ $(document).ready(function () {
 		$(".zoomedInPhoto").delay( time ).slideUp("slow");
 	}
 
+	function bounceAnimation () {
+    	$(this).toggleClass("hovered");
+	}
+
 
 	/* CODE */
 
@@ -134,8 +138,8 @@ $(document).ready(function () {
 		return false;
 	});
 
+	/* Navigation icons are bouncing on hover */
+	$(".bounce").hover( bounceAnimation );
 
-
-	
 });
 
