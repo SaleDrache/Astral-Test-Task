@@ -346,10 +346,6 @@ body {
 	.photos {
 		.zoomedInPhoto {
 			display: none;
-			.small {
-				width: 30%;
-				cursor: zoom-out;
-			}
 		}
 
 		.photo {
@@ -368,13 +364,22 @@ body {
 		.big {
 			width: 100%;
 		}
-		.small {
+		.fa-search-plus, .fa-search-minus {
+			color: black;
+			font-size: 28px;
 			position: absolute;
-			right: 0;
-			top:0 ;
-			width: 50%;
+			right: 20px;
+			top: 20px;
 			display: none;
-			cursor: zoom-in;
+			cursor: pointer;
+		}
+		.fa-search-minus {
+			right: 50px;
+			top: 50px;
+			@media screen and (max-width: @bigscreen) {
+				right: 40px;
+				top: 40px;
+			}
 		}
 	}
 }

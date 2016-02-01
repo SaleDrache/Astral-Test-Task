@@ -44,7 +44,6 @@ $(document).ready(function () {
 	}
 
 	function setActiveState (selected) {
-		console.log(selected);
 		selected.addClass("active").parent().siblings().find("a").removeClass("active");
 	}
 
@@ -73,16 +72,16 @@ $(document).ready(function () {
 
 	function showSmallPhoto () {
 		if ( $(document).width() > 768 ) {
-			( $(this) ).find(".small").fadeIn("fast");
+			( $(this) ).find(".zoom").fadeIn("fast");
 		}
 	}
 	function hideSmallPhoto () {
 		if ( $(document).width() > 768 ) {
-			( $(this) ).find(".small").fadeOut("fast");
+			( $(this) ).find(".zoom").fadeOut("fast");
 		}
 	}
 	function showBigPhoto () {
-		var photoSrc = $(this).attr("src");
+		var photoSrc = $(this).closest(".photoList").find("img").attr("src");
 		$(".zoomedInPhoto").fadeOut("normal", function(){
 			$(".zoomedInPhoto").find("img").attr("src", photoSrc );
 			$(".zoomedInPhoto").fadeIn("normal");
@@ -114,8 +113,8 @@ $(document).ready(function () {
 
 	/* Zoom-in and zoom-out photos */
 	$(".photo").hover( showSmallPhoto, hideSmallPhoto );
-	$(".photoList").on("click", ".small", showBigPhoto);
-	$(".zoomedInPhoto").on("click", ".small", hideBigPhoto);
+	$(".photoList").on("click", ".zoom", showBigPhoto);
+	$(".zoomedInPhoto").on("click", ".zoom", hideBigPhoto);
 
 	/* Validate contact form */
 	$(".form-horizontal").validate(validateData);
